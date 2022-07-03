@@ -1,1 +1,2 @@
-# theOdinProject-practice
+# theOdinProject-practice 
+readme
