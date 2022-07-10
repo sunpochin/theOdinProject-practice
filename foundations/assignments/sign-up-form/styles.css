@@ -1,0 +1,18 @@
+#container {
+  height: 1000px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #CCCCCC;
+  display: flex;
+}
+
+#left {
+  width: 400px;
+  background-image: url('./images/halie-west-25xggax4bSA-unsplash.jpg');
+}
+
+#right {
+  width: 600px;
+  margin: auto;
+}
+
