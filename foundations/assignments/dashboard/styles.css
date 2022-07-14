@@ -1,0 +1,50 @@
+#container {
+  height: 1000px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #CCCCCC;
+  display: flex;
+}
+
+#left {
+  width: 400px;
+  background-image: url('./images/halie-west-25xggax4bSA-unsplash.jpg');
+}
+
+#container {
+  height: 1000px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #CCCCCC;
+  display: flex;
+}
+
+#left {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  background-color: #44aaFF;
+  /* background-image: url('./images/halie-west-25xggax4bSA-unsplash.jpg'); */
+}
+
+#right {
+  width: 600px;
+  margin: auto;
+}
+
+#title {
+  font-size: 50px;
+  margin: 0 50px 100px;
+}
+
+.left-items {
+  width: 200px;
+  height: 50px;
+  margin: 0 50px;
+}
+
+#right {
+  width: 600px;
+  margin: auto;
+}
+
