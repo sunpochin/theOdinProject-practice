@@ -19,17 +19,25 @@
   display: flex;
 }
 
-#left {
-  display: flex;
-  flex-direction: column;
+aside {
+  /* display: flex;
+  flex-direction: column; */
   width: 400px;
   background-color: #44aaFF;
   /* background-image: url('./images/halie-west-25xggax4bSA-unsplash.jpg'); */
 }
 
-#right {
-  width: 600px;
-  margin: auto;
+aside nav a {
+  display: block;
+  padding: 0 0 0.5em 2em;
+}
+
+aside nav a[title='Settings'] {
+    margin-top: 2em;
+}
+
+nav {
+  display: block;
 }
 
 #title {
@@ -46,5 +54,12 @@
 #right {
   width: 600px;
   margin: auto;
+  display: grid;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 100px 100px 100px 100px;
 }
+
+.grid-item {
+}
+
 
