@@ -11,10 +11,6 @@ function Book(name) {
 
 function addBookToLibrary(newBook) {
 	// do stuff here
-	// const bookB = new Book('bookB');
-	// const bookC = new Book('bookC');
-	// myLibrary.push(bookB);
-	// myLibrary.push(bookC);
 	myLibrary.push(newBook);
 	console.log('addBookToLibrary: ', myLibrary);
 }
@@ -60,8 +56,8 @@ function confirmAddBook() {
 	bookNew.pages = pages.value;
 	addBookToLibrary(bookNew);
 	showBooks();
-
 }
+
 document.getElementById('confirm').addEventListener('click', confirmAddBook);
 
 const bookB = new Book('bookB');
