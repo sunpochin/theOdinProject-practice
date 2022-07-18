@@ -22,7 +22,7 @@ function addBookToLibrary(newBook) {
 function showBooks() {
 	const bookshelf = document.getElementById('bookshelf');
 	bookshelf.textContent = '';
-	
+
 	for (let i = 0; i < myLibrary.length; i++) {
 		// console.log(myLibrary[i].name);
 		const book = document.createElement('div');
@@ -47,6 +47,11 @@ function showBooks() {
 function confirmAddBook() {
 	console.log('confirmAddBook');
 	const title = document.getElementById('title');
+	// console.log('title.value.trim(): ', title.value.trim());
+	if (title.value.trim() === '') {
+		console.log('trim return')
+		return;
+	}
 	const author = document.getElementById('author');
 	const pages = document.getElementById('pages');
 	const bookNew = new Book('bookB');
