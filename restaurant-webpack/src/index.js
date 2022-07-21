@@ -1,5 +1,7 @@
 import { functionOne, functionTwo } from './myModule';
+import home from './home';
 import menu from './menu';
+import contact from './contact';
 
 function component() {
 	const element = document.createElement('div');
@@ -21,8 +23,8 @@ function hello() {
 
 // document.body.appendChild(component());
 // hello();
-const home = document.querySelector('.home');
-home.classList.add('selected');
+const homeTab = document.querySelector('.home');
+homeTab.classList.add('selected');
 
 const tabs = document.querySelectorAll('.tabs li');
 
@@ -36,13 +38,14 @@ const changeTab = (e) => {
 	e.target.classList.add('selected');
 	if (e.target.classList.contains('home')) {
 		e.target.classList.add('selected');
-    functionOne();
+    home();
 	} else if (e.target.classList.contains('menu')) {
 		e.target.classList.add('selected');
-    functionTwo();
+    // functionTwo();
     menu();
 	} else if (e.target.classList.contains('contact')) {
 		e.target.classList.add('selected');
+		contact();
 	}
 };
 

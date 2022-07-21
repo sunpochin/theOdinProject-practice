@@ -1,4 +1,4 @@
-export default function menu() {
+export default function contact() {
 	const contentEl = document.querySelector('#content');
 	contentEl.innerHTML = '';
 
@@ -6,7 +6,7 @@ export default function menu() {
 	intro.setAttribute('id', 'intro');
 
 	const heading = document.createElement('h2');
-	heading.innerHTML = 'Menu';
+	heading.innerHTML = 'Contact';
 
 	intro.append(heading);
 	contentEl.appendChild(intro);
