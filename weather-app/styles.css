@@ -1,0 +1,49 @@
+
+body {
+  background-image: url('./img/nathan-anderson-unsplash.jpg');
+  color: white;
+}
+
+#container {
+  width: 100%;
+  height: 95vh;
+  /* height: 1200px; */
+}
+
+#current {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#left_sec {
+  width: 60%;
+  height: 100%;
+}
+
+#right_sec {
+  width: 30%;
+  height: 100%;
+}
+
+.right_item {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+
+.info {
+  height: 50%;
+  width: 100%;
+}
+
+.data {
+  height: 50%;
+  width: 100%;
+}
+
+#forecast {
+  width: 100%;
+  height: 50%;
+}
