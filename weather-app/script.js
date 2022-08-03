@@ -16,8 +16,9 @@ async function getWeather() {
 	weatherData = await response.json();
 	console.log(weatherData);
 
-	const temp = document.getElementById('temperature');
-	temp.innerText = weatherData.weather[0].main;
+	const temp = document.getElementById('temp');
+	// temp.innerText = weatherData.weather[0].main;
+	temp.innerText = weatherData.main.temp;
 
 	const apiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${xx}`;
 
