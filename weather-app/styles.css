@@ -2,6 +2,7 @@
 body {
   background-image: url('./img/nathan-anderson-unsplash.jpg');
   color: white;
+  font-family: montserrat, sans-serif;
 }
 
 #container {
@@ -36,11 +37,13 @@ body {
 .info {
   height: 50%;
   width: 100%;
+  font-size: 1.2rem;
 }
 
 .data {
   height: 50%;
   width: 100%;
+  font-size: 2.4rem;
 }
 
 #forecast {
