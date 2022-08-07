@@ -1,38 +1,53 @@
 // import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header'
-import Main from './components/Main'
+// import Header from './components/Header';
+// import Main from './components/Main';
+import GeneralSection from './components/GeneralSection';
 
 const App = () => {
-  return (
-    <>
-      <Header />
-      <Main />
-    </>
-  );
+  const handleClick = (type) => {
+    console.log('type:', type);
+  }
+
+	return (
+		<>
+			<div>
+				<main>
+					<h1 className='title'>CV-App React</h1>
+						<h2 className='subTitle'>General Info.</h2>
+						<GeneralSection />
+					<div>
+							<h2 className='subTitle'>Education Section</h2>
+							{/* {eduComponents} */}
+						<button
+							className='addBtn'
+							onClick={() => handleClick('educationIds')}
+						>
+							Add
+						</button>
+					</div>
+					<div>
+							<h2 className='subTitle'>Experience Section</h2>
+							{/* {expComponents} */}
+						<button
+							className='addBtn'
+							onClick={() => handleClick('experienceIds')}
+						>
+							Add
+						</button>
+					</div>
+					{/* <button
+						onClick={() => {
+							window.print();
+						}}
+						className='addBtn'
+					>
+						Print
+					</button> */}
+				</main>
+			</div>
+		</>
+	);
 };
 
 export default App;
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
