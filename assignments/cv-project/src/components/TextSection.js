@@ -1,8 +1,8 @@
 import React from 'react';
 
 const TextSection = (props) => {
-	const { schoolName, study, from, to } = props;
-
+	console.log('firstName: ', props.firstName);
+	console.log('handleEdit: ', props.handleEdit);
 	if (props.firstName) {
 		return (
 			<div className='textSection'>
@@ -80,18 +80,6 @@ const TextSection = (props) => {
 		);
 	}
 
-	// return (
-	// 	<>
-	// 		<div className='section'>
-	// 			<p>{schoolName}</p>
-	// 			schoolName: {schoolName}, <br />
-	// 			study: {study}, <br />
-	// 			from: {from}, <br />
-	// 			to: {to}
-	// 		</div>
-	// 		<br />
-	// 	</>
-	// );
 };
 
 export default TextSection;

@@ -4,6 +4,7 @@ import TextSection from './TextSection';
 const EducationSec = (props) => {
 	// console.log('props: ', props);
 	const { id, deleteItem } = props;
+	const [editMode, setEditMode] = useState(true);
 
 	const [educationInfo, setEducationInfo] = useState({
 		schoolName: '',
@@ -11,8 +12,6 @@ const EducationSec = (props) => {
 		from: '',
 		to: '',
 	});
-	const [editMode, setEditMode] = useState(true);
-
 	const { schoolName, study, from, to } = educationInfo;
 
 	const handleChange = (e) => {
@@ -40,7 +39,13 @@ const EducationSec = (props) => {
 	if (!editMode) {
 		return (
 			<>
-				<TextSection schoolName={schoolName} study={study} from={from} to={to} />
+				<TextSection
+					handleEdit={handleSubmit}
+					schoolName={schoolName}
+					study={study}
+					from={from}
+					to={to}
+				/>
 				<br />
 			</>
 		);
