@@ -14,7 +14,6 @@ const App = () => {
 	const handleClick = (type) => {
 		console.log('type:', type);
 		if ('experienceIds' === type) {
-			console.log('type:', type);
 			setExperienceIds((prevExperienceIds) => [...prevExperienceIds, uniqid()]);
 		} else if ('educationIds' === type) {
 			setEducationIds((prevEducationIds) => [...prevEducationIds, uniqid()]);

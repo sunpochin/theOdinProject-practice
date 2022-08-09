@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextSection from './TextSection';
 
 const ExperienceSec = (props) => {
-	const { id, deleteItem} = props;
+	const { id, deleteItem } = props;
 	const [editMode, setEditMode] = useState(true);
 	const [expInfo, setExpInfo] = useState({
 		companyName: '',
@@ -11,6 +11,7 @@ const ExperienceSec = (props) => {
 		to: '',
 		tasks: '',
 	});
+	const { companyName, position, from, to, tasks } = expInfo;
 
 	const handleChange = (e) => {
 		console.log('change: ', e);
@@ -44,7 +45,7 @@ const ExperienceSec = (props) => {
 					from={expInfo.from}
 					to={expInfo.to}
 				/>
-				<br/>
+				<br />
 			</>
 		);
 	}
@@ -52,25 +53,24 @@ const ExperienceSec = (props) => {
 	return (
 		<>
 			<section>
-				<form className='section' action='' onSubmit={handleSubmit}>
-					<label htmlFor='schoolName'>
-						<p>School Name:</p>
+				<form action='' className='section xpSection' onSubmit={handleSubmit}>
+					<label>
+						<p>Company Name:</p>
 						<input
 							type='text'
-							placeholder='School Name'
+							placeholder='Company Name'
 							name='companyName'
-							id='companyName'
 							onChange={handleChange}
-							value={expInfo.companyName}
+							value={companyName}
 							required
 						/>
 					</label>
 					<label>
-						<p>Title of Study:</p>
+						<p>Position Title:</p>
 						<input
 							type='text'
 							placeholder='Position Title'
-							name='positionTitle'
+							name='position'
 							onChange={handleChange}
 							value={expInfo.positionTitle}
 							required
@@ -87,7 +87,6 @@ const ExperienceSec = (props) => {
 							required
 						/>
 					</label>
-
 					<label>
 						<p>To:</p>
 						<input
@@ -95,22 +94,18 @@ const ExperienceSec = (props) => {
 							name='to'
 							placeholder='To'
 							onChange={handleChange}
-							value={expInfo.to}
+							value={to}
 							required
 						/>
 					</label>
-
-					<label>
-						<textarea
-							name='tasks'
-							className='tasks'
-							placeholder='Main Tasks'
-							onChange={handleChange}
-							value={expInfo.tasks}
-							required
-						/>
-					</label>
-
+					<textarea
+						name='tasks'
+						className='tasks'
+						placeholder='Main Tasks'
+						onChange={handleChange}
+						value={tasks}
+						required
+					/>
 					<button className='formBtn'>Save</button>
 					<button
 						className='formBtn'
@@ -118,7 +113,7 @@ const ExperienceSec = (props) => {
 						onClick={() => handleDelete('experienceIds', id)}
 					>
 						Delete
-					</button>
+					</button>{' '}
 				</form>
 			</section>
 		</>
