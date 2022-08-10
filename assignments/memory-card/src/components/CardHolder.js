@@ -4,6 +4,10 @@ import Card from './Card';
 
 const CardHolder = () => {
 	const [cardIds, setCardIds] = useState([]);
+  const [clicked, setClicked] = useState([]);
+  const [score, setScore] = useState(0);
+  const [gameState, setGameState] = useState("");
+  // let clickedCards = [];
 
 	function randomArrayShuffle(array) {
 		var currentIndex = array.length,
@@ -19,29 +23,43 @@ const CardHolder = () => {
 		return array;
 	}
 
-	var alphabet = ['a', 'b', 'c', 'd', 'e'];
+  let someArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 	useEffect(() => {
-		setCardIds(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
-		randomArrayShuffle(alphabet);
-		// console.log(cardIds);
-		console.log(alphabet);
+		setCardIds(someArray);
+		randomArrayShuffle(someArray);
+    console.log('someArray: ', someArray);
 	}, []);
+	// console.log('cardIds: ', cardIds);
 
-	console.log(cardIds);
+  useEffect(() => {
+    // console.log('cardIds: ', cardIds);
+    console.log('clicked: ', clicked);
+    console.log('score: ', score);
+  }, [clicked, score]);
 
 	const clickCard = (id) => {
-		console.log('click card holder: ', id);
-		setCardIds((prevCardIds) => {
-			return prevCardIds.filter((prev) => prev !== id);
-		});
+    console.log(Array(clicked) );
+    const found = clicked.find(element => element === id);
+    console.log('found: ', found);
+    if (undefined !== found ) {
+      console.log('game over: ', id);
+      setGameState("game over");
+      setScore(0);
+      setClicked([]);
+      return;
+    }
+
+    setClicked((prevClicked) => {
+      return prevClicked.concat(id);
+    });
+		randomArrayShuffle(someArray);
+    setCardIds(someArray);
+    setScore((prevScore) => {
+      return prevScore + 1;
+    })
+		// console.log('click card holder: ', clicked);
 	};
 
-	// const cards = [
-	// 	<Card key='1' id='1' clickCard={clickCard} />,
-	// 	<Card key='2' id='2' clickCard={clickCard} />,
-	// 	<Card key='3' id='3' clickCard={clickCard} />,
-	// 	<Card key='4' id='4' clickCard={clickCard} />,
-	// ];
 	const cards = cardIds.map((id) => (
 		<Card key={id} id={id} clickCard={clickCard} />
 	));
@@ -49,6 +67,8 @@ const CardHolder = () => {
 	return (
 		<div>
 			<div className='card-holder'>{cards}</div>
+			<div className='score'>Score: {score}</div>
+			<div className='gameState'>{gameState}</div>
 		</div>
 	);
 };
