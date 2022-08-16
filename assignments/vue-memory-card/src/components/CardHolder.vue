@@ -2,88 +2,38 @@
 	<div class="hello">
 		<h1>{{ msg }}</h1>
 	</div>
-	<CardIns />
-	<ul>
-		<div class="card-holder">
-			<div class="card" v-for="card in cards" :key="card.id">
-				{{ card.name }}
-				<!-- <button @click="removeTodo(todo)">X</button> -->
-			</div>
-		</div>
-	</ul>
+	<div class="card-holder">
+		<card-item
+			v-for="(card, index) in cards"
+			:key="card.id"
+			:title="card.name"
+      :imgsrc="card.src"
+			@remove="cards.splice(index, 1)"
+		></card-item>
+	</div>
 </template>
 
 <script>
-import CardIns from './CardIns.vue';
-import { Pokedex } from 'pokeapi-js-wrapper';
-const pokedex = new Pokedex();
+import { randomArrayShuffle, getCards } from './lib.js';
+import CardItem from './CardItem.vue';
+
 let someArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-
-const fetchCardsImgs = (cards) =>
-	Promise.all(
-		cards.map(
-			({ src }) =>
-				new Promise((resolve) => {
-					const img = new Image();
-					img.src = src;
-					img.onload = () => resolve(src);
-				})
-		)
-	);
-
-const getCards = async (ids) => {
-	const cards = await fetchPokemonApi(ids);
-	console.log('fetchPokemonApi cards: ', cards);
-	const brief = cards.map((card) => ({
-		id: card.id,
-		name: card.name,
-		// src: card.sprites.other['official-artwork'].front_default,
-		// src: card.sprites.back_default,
-		src: card.sprites.front_default,
-	}));
-	await fetchCardsImgs(brief);
-	// setIsLoading(false);
-	// console.log('cards: ', cards);
-	console.log('brief: ', brief);
-	return brief;
-};
-
-const randomArrayShuffle = (array) => {
-	var currentIndex = array.length,
-		temporaryValue,
-		randomIndex;
-	while (0 !== currentIndex) {
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
-		temporaryValue = array[currentIndex];
-		array[currentIndex] = array[randomIndex];
-		array[randomIndex] = temporaryValue;
-	}
-	return array;
-};
-
-// const updateCards = async (ids) => {
-// 	const newCards = await getCards(ids);
-// 	this.setCards(newCards);
-// 	// console.log('newCards: ', newCards);
-// 	// setIsLoading(false);
-// };
-
-const fetchPokemonApi = (ids) => {
-	console.log('ids: ', ids);
-	const pro = Promise.all(ids.map((id) => pokedex.getPokemonByName(id)));
-	return pro;
-};
 
 export default {
 	name: 'CardHolder',
-
+	components: { CardItem },
 	data() {
 		return {
 			cards: [],
 		};
 	},
 	methods: {
+		// children() {
+		// 	let ComponentClass = Vue.extend(CardIns);
+		// 	let instance = new ComponentClass({});
+
+		// 	return [instance];
+		// },
 		async updateCards(ids) {
 			const newCards = await getCards(ids);
 			this.setCards(newCards);
@@ -91,22 +41,18 @@ export default {
 			// setIsLoading(false);
 		},
 		setCards(newCards) {
+			// const mappedCards = newCards.map((card) => (
+			// 	<CardIns key={card.id} id={card.id} card={card} />
+			// ));
 			this.cards = newCards;
 			console.log('this.cards: ', this.cards);
-		},
-		addTodo() {
-			// ...
-			this.newTodo = '';
 		},
 	},
 
 	mounted() {
 		// component is now mounted.
-    randomArrayShuffle(someArray);
+		randomArrayShuffle(someArray);
 		this.updateCards(someArray);
-	},
-	components: {
-		CardIns,
 	},
 	props: {
 		msg: String,
@@ -129,24 +75,6 @@ li {
 }
 a {
 	color: #42b983;
-}
-
-.card {
-	width: 100px;
-	height: 150px;
-	margin: 10px;
-	/* text-align: center; */
-	display: flex;
-	flex-direction: column;
-
-	justify-content: center;
-	align-items: center;
-
-	background-color: #5555f5;
-	border-radius: 5px;
-	box-shadow: 5px 5px #888;
-
-	cursor: pointer;
 }
 
 .card-holder {
