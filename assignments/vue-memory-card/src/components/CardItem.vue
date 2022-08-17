@@ -19,6 +19,7 @@ export default {
 <template>
 	<div class="card">
 		{{ title }}
+		<!-- Note: it's <img :src="xxx"> -->
 		<!-- <img :src="currBackgroundURL"/> -->
 		<img :src="imgsrc"/>
 	</div>

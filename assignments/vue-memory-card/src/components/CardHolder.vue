@@ -16,7 +16,6 @@
 <script>
 import { randomArrayShuffle, getCards } from './lib.js';
 import CardItem from './CardItem.vue';
-
 let someArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 export default {
@@ -28,12 +27,6 @@ export default {
 		};
 	},
 	methods: {
-		// children() {
-		// 	let ComponentClass = Vue.extend(CardIns);
-		// 	let instance = new ComponentClass({});
-
-		// 	return [instance];
-		// },
 		async updateCards(ids) {
 			const newCards = await getCards(ids);
 			this.setCards(newCards);
